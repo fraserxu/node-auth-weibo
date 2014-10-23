@@ -1,7 +1,9 @@
 node-auth-weibo
 ===============
 
-A complete oauth flow example for Sina Weibo
+A complete oauth flow example for Sina Weibo.
+
+I followed up the awesome series [EASY NODE AUTHENTICATION](http://scotch.io/series/easy-node-authentication) from [scotch.io](http://scotch.io/) and what I did is to add the support for Sina Weibo. It's really useful and I think you may need this in your next hackthon project.
 
 
 ### Development
@@ -24,3 +26,7 @@ $ npm run start
 * Mongodb
 * Express
 * Passport
+
+### License
+
+MIT
