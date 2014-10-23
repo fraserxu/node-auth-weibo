@@ -1,0 +1,68 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+  <title>Node Authentication</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <style>
+    body    { padding-top:80px; word-wrap:break-word; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="page-header text-center">
+    <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+  </div>
+
+  <div class="row">
+
+    <!-- LOCAL INFORMATION -->
+    <div class="col-sm-6">
+      <div class="well">
+        <h3><span class="fa fa-user"></span> Local</h3>
+
+        <% if (user.local.email) { %>
+          <p>
+            <strong>id</strong>: <%= user._id %><br>
+            <strong>email</strong>: <%= user.local.email %><br>
+            <strong>password</strong>: <%= user.local.password %>
+          </p>
+
+          <a href="/unlink/local" class="btn btn-default">Unlink</a>
+        <% } else { %>
+          <a href="/connect/local" class="btn btn-default">Connect Local</a>
+        <% } %>
+
+      </div>
+    </div>
+
+
+  <div class="row">
+
+    <!-- WEIBO INFORMATION -->
+    <div class="col-sm-6">
+      <div class="well">
+        <h3 class="text-info"><span class="fa fa-weibo"></span> Weibo</h3>
+
+        <!-- check if the user has this token (is the user authenticated with this social account) -->
+        <% if (user.weibo.token) { %>
+          <p>
+            <strong>id</strong>: <%= user.weibo.id %><br>
+            <strong>token</strong>: <%= user.weibo.token %><br>
+            <strong>name</strong>: <%= user.weibo.name %><br>
+          </p>
+
+          <a href="/unlink/weibo" class="btn btn-info">Unlink</a>
+        <% } else { %>
+          <a href="/connect/weibo" class="btn btn-info">Connect Weibo</a>
+        <% } %>
+
+      </div>
+    </div>
+
+</div>
+</body>
+</html>
